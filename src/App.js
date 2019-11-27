@@ -32,7 +32,7 @@ const addScheduleTimes = schedule => ({
 
 const App = () => {
   const [schedule, setSchedule] = useState({ title: '', courses: [] });
-  const url = 'https://www.cs.northwestern.edu/academics/courses/394/data/cs-courses.php';
+  const url = 'https://courses.cs.northwestern.edu/394/data/cs-courses.php';
 
   useEffect(() => {
     const fetchSchedule =  async () => {

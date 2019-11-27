@@ -18,6 +18,7 @@ const TermSelector = ({ state }) => (
     {Object.values(terms)
       .map(value =>
         <Button key={value}
+          className='termBtn'
           color={buttonState(value === state.term)}
           onClick={() => state.setTerm(value)}
         >

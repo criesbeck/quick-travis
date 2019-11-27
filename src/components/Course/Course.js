@@ -5,6 +5,7 @@ import { buttonState, getCourseNumber, getCourseTerm, hasConflict } from './time
   
 const Course = ({ course, state }) => (
   <Button
+      className="courseBtn"
       color={ buttonState(state.selected.includes(course)) }
       onClick={ () => state.toggle(course) }
       disabled={ hasConflict(course, state.selected) }
