@@ -2,14 +2,18 @@
 
 describe ('Test App', () => {
 
-  it ('launches with Fall term', () => {
+  it ('launches', () => {
     cy.visit ('/');
-    cy.get('.courseBtn').should('contain' ,'Fall');
   });
 
-  it('can show another term', () => {
+  it ('opens with Fall CS courses', () => {
     cy.visit ('/');
-    cy.get('.termBtn').contains('Winter').click();
-    cy.get('.courseBtn').should('contain' ,'Winter');
+    cy.get('[data-cy=course]').should('contain', 'Fall CS');
+  });
+
+  it('shows Winter courses when Winter is selected', () => {
+    cy.visit ('/');
+    cy.get('[data-cy=Winter]').click();
+    cy.get('[data-cy=course]').should('contain' ,'Winter CS');
   });
 });
