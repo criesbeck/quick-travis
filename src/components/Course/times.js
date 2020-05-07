@@ -9,12 +9,13 @@ const getCourseNumber = course => (
   course.id.slice(1, 4)
 )
 
-const daysOverlap = (days1, days2) => ( 
-  days.some(day => days1.includes(day) && days2.includes(day))
+// unscheduled classes with missing days or hours never overlap
+const daysOverlap = (days1, days2) => (
+  days1 && days2 && days.some(day => days1.includes(day) && days2.includes(day))
 );
 
 const hoursOverlap = (hours1, hours2) => (
-  Math.max(hours1.start, hours2.start) < Math.min(hours1.end, hours2.end)
+  hours1 && hours2 && Math.max(hours1.start, hours2.start) < Math.min(hours1.end, hours2.end)
 );
 
 const timeConflict = (course1, course2) => (
